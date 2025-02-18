@@ -1,0 +1,90 @@
+# Ignorare i file eseguibili
+*.exe
+*.dll
+*.dcu
+*.bpl
+*.dcp
+*.ocx
+*.a
+*.lib
+*.so
+*.dylib
+
+# File di configurazione di progetto e cache generati automaticamente
+__history/
+__recovery/
+*.local
+*.identcache
+*.tvsconfig
+*.dsk
+*.dof
+*.cfg
+*.map
+*.dsm
+*.tvsconfig
+
+# File temporanei e di backup
+*.~*
+*.bak
+*.tmp
+*.log
+*.lck
+
+# File generati dai compilatori Delphi (DCU, DCP, BPL, etc.)
+*.dcu
+*.dcp
+*.bpl
+*.dsk
+*.stat
+*.res
+
+# File del debugger
+*.tds
+*.dbg
+*.map
+
+# File di configurazione di editor come VS Code
+.vscode/
+
+# File specifici per FireMonkey e progetti cross-platform
+*.ios
+*.android
+*.macos
+*.linux
+*.tvos
+*.watchos
+
+# File di compilazione C++Builder
+*.obj
+*.hpp
+*.tds
+
+# File di configurazione di progetto generati automaticamente
+*.groupproj
+*.dsw
+*.dsp
+*.cbproj
+*.identcache
+
+# Escludere cartelle di output della compilazione
+Win32/
+Win64/
+OSX32/
+iOSSimulator/
+iOSDevice64/
+Android/
+Linux64/
+OSX64/
+OSX64ARM/
+iOSSimARM64/
+OSXARM64/
+
+# Escludere eventuali cartelle di backup
+Backup/
+__MACOSX/
+
+
+*.o
+
+
+

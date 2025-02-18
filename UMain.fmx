@@ -1,0 +1,64 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 535
+  ClientWidth = 689
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Label1: TLabel
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Text = 'Inserisci li testo'
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akTop, akRight]
+    TabOrder = 1
+    Position.X = 136.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 457.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Scrivi qui'
+  end
+  object Button1: TButton
+    Anchors = [akTop, akRight]
+    Default = True
+    Position.X = 601.000000000000000000
+    Position.Y = 8.000000000000000000
+    TabOrder = 3
+    Text = 'Talk'
+    TextSettings.Trimming = None
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Anchors = [akTop, akRight]
+    Default = True
+    Position.X = 601.000000000000000000
+    Position.Y = 38.000000000000000000
+    TabOrder = 2
+    Text = 'Thread Talk'
+    TextSettings.Trimming = None
+    OnClick = Button2Click
+  end
+  object RectangleWait: TRectangle
+    Align = Client
+    Opacity = 0.500000000000000000
+    Size.Width = 689.000000000000000000
+    Size.Height = 535.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object AniIndicator: TAniIndicator
+      Align = Center
+      Size.Width = 57.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+end
