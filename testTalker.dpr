@@ -5,7 +5,8 @@ uses
   FMX.Forms,
   UMain in 'UMain.pas' {Form1},
   UTalker in 'UTalker.pas',
-  UShouter in 'UShouter.pas';
+  UShouter in 'UShouter.pas',
+  Ucrypt in 'Ucrypt.pas';
 
 {$R *.res}
 

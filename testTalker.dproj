@@ -304,6 +304,7 @@
         </DCCReference>
         <DCCReference Include="UTalker.pas"/>
         <DCCReference Include="UShouter.pas"/>
+        <DCCReference Include="Ucrypt.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

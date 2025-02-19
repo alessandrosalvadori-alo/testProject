@@ -2,12 +2,16 @@ unit UMain;
 
 interface
 
+// ogni volta che si modifica il campo testo si va a salvare il contenuto del campo so un file di
+// JSON e deve essere riproposto in fase di apertura programma
+
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
+  System.Variants, System.JSON, // system for JSON
+  System.IOUtils, System.NetEncoding,
   UTalker, FMX.Ani,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Objects;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Objects, UCrypt;
 
 type
   TForm1 = class(TForm)
@@ -17,10 +21,17 @@ type
     Button2: TButton;
     RectangleWait: TRectangle;
     AniIndicator: TAniIndicator;
+    crypt: TButton;
+    Button3: TButton;
+    Edit2: TEdit;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+
+    procedure Edit1Validate(Sender: TObject; var Text: string);
+    procedure cryptClick(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     FTalker: TTalker;
     procedure GenerateMessage;
@@ -30,13 +41,17 @@ type
   end;
 
 var
+  lJSON: TJSONObject;
   Form1: TForm1;
+  Result: String;
+  FileStream: TFileStream;
 
 implementation
 
 const
   NO_OPACITY = 0;
   OPACITY = 0.7;
+  FILE_NAME = 'C:\Mac\Home\Documents\Embarcadero\Studio\Projects\text.json';
 
 {$R *.fmx}
 
@@ -57,11 +72,54 @@ begin
 
 end;
 
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  showmessage(Tcrypt.Decrypt(Edit2.Text, $FA));
+end;
+
+procedure TForm1.cryptClick(Sender: TObject);
+begin
+
+  Edit2.Text := Tcrypt.Encrypt(Edit1.Text, $FA);
+
+end;
+
+procedure TForm1.Edit1Validate(Sender: TObject; var Text: string);
+begin
+  lJSON := TJSONObject.Create;
+  lJSON.AddPair('edit', Edit1.Text);
+
+  var
+  LBase64 := TNetEncoding.Base64.Encode(lJSON.ToJSON);
+  TFile.WriteAllBytes(FILE_NAME, TEncoding.UTF8.GetBytes(LBase64));
+  lJSON.Free
+
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
+var
+  JSonValue: TJSonValue;
+  FileValue: string;
 begin
   FTalker := TTalker.Create;
-  RectangleWait.Opacity := NO_OPACITY;
-  RectangleWait.Visible := False;
+  RectangleWait.OPACITY := NO_OPACITY;
+  RectangleWait.Visible := false;
+  RectangleWait.BringToFront;
+
+  if TFile.Exists(FILE_NAME) then
+  begin
+    var
+    LBase64Text := TFile.ReadAllText(FILE_NAME);
+    var
+    LDecodedText := TNetEncoding.Base64.Decode(LBase64Text);
+    JSonValue := TJSONObject.ParseJSONValue(LDecodedText);
+    FileValue := JSonValue.GetValue<string>('edit');
+    Edit1.Text := FileValue;
+  end;
+ // criptare testo inserito, algoritmo di decriptaggio, salva su file in base64
+
+
+
   // RectangleWait.Align:=  TAlignLayout.Client;
 
 end;
@@ -72,9 +130,10 @@ begin
 
 end;
 
+// '{' + '"testo Edit":'+ '"'+ Edit1.Text+ '"' +'}'
 procedure TForm1.GenerateMessage;
 begin
-  Showmessage(Format('Il testo inserito è: %s', [FTalker.Talk(Edit1.Text)]));
+  showmessage(Format('Il testo inserito è: %s', [FTalker.Talk(Edit1.Text)]));
 
 end;
 
@@ -85,8 +144,8 @@ begin
       procedure
       begin
         TAnimator.AnimateFloatWait(RectangleWait, 'Opacity', NO_OPACITY);
-        RectangleWait.Visible := False;
-        Showmessage(TTalker(Sender).Text);
+        RectangleWait.Visible := false;
+        showmessage(TTalker(Sender).Text);
       end);
 
 end;

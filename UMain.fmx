@@ -10,6 +10,20 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   DesignerMasterStyle = 0
+  object RectangleWait: TRectangle
+    Align = Client
+    Opacity = 0.500000000000000000
+    Size.Width = 689.000000000000000000
+    Size.Height = 535.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object AniIndicator: TAniIndicator
+      Align = Center
+      Size.Width = 57.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
   object Label1: TLabel
     Position.X = 8.000000000000000000
     Position.Y = 8.000000000000000000
@@ -26,6 +40,7 @@ object Form1: TForm1
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TextPrompt = 'Scrivi qui'
+    OnValidate = Edit1Validate
   end
   object Button1: TButton
     Anchors = [akTop, akRight]
@@ -47,18 +62,32 @@ object Form1: TForm1
     TextSettings.Trimming = None
     OnClick = Button2Click
   end
-  object RectangleWait: TRectangle
-    Align = Client
-    Opacity = 0.500000000000000000
-    Size.Width = 689.000000000000000000
-    Size.Height = 535.000000000000000000
+  object crypt: TButton
+    Position.X = 601.000000000000000000
+    Position.Y = 68.000000000000000000
+    TabOrder = 5
+    Text = 'crypt'
+    TextSettings.Trimming = None
+    OnClick = cryptClick
+  end
+  object Button3: TButton
+    Anchors = [akTop, akRight]
+    Position.X = 601.000000000000000000
+    Position.Y = 98.000000000000000000
+    TabOrder = 6
+    Text = 'decrypt'
+    TextSettings.Trimming = None
+    OnClick = Button3Click
+  end
+  object Edit2: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akTop, akRight]
+    TabOrder = 7
+    Position.X = 136.000000000000000000
+    Position.Y = 38.000000000000000000
+    Size.Width = 457.000000000000000000
+    Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    Stroke.Kind = None
-    object AniIndicator: TAniIndicator
-      Align = Center
-      Size.Width = 57.000000000000000000
-      Size.Height = 49.000000000000000000
-      Size.PlatformDefault = False
-    end
+    TextPrompt = 'testo cryptato..'
   end
 end
