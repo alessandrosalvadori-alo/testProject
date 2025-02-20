@@ -305,6 +305,10 @@
         <DCCReference Include="UTalker.pas"/>
         <DCCReference Include="UShouter.pas"/>
         <DCCReference Include="Ucrypt.pas"/>
+        <DCCReference Include="URest.pas">
+            <Form>Form2</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -409,12 +413,6 @@
                 <DeployFile LocalName="Win64\Debug\testTalker.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>testTalker.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="Win64\Debug\testTalker.rsm" Configuration="Debug" Class="DebugSymbols">
-                    <Platform Name="Win64">
-                        <RemoteName>testTalker.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

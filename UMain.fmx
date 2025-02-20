@@ -47,7 +47,7 @@ object Form1: TForm1
     Default = True
     Position.X = 601.000000000000000000
     Position.Y = 8.000000000000000000
-    TabOrder = 3
+    TabOrder = 8
     Text = 'Talk'
     TextSettings.Trimming = None
     OnClick = Button1Click
@@ -89,5 +89,21 @@ object Form1: TForm1
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TextPrompt = 'testo cryptato..'
+  end
+  object Button4: TButton
+    Position.X = 601.000000000000000000
+    Position.Y = 128.000000000000000000
+    TabOrder = 9
+    Text = 'authentication'
+    TextSettings.Trimming = None
+    OnClick = Button4Click
+  end
+  object Button5: TButton
+    Position.X = 601.000000000000000000
+    Position.Y = 158.000000000000000000
+    TabOrder = 10
+    Text = 'request'
+    TextSettings.Trimming = None
+    OnClick = Button5Click
   end
 end

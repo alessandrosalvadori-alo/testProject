@@ -9,7 +9,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
   System.Variants, System.JSON, // system for JSON
   System.IOUtils, System.NetEncoding,
-  UTalker, FMX.Ani,
+  UTalker, FMX.Ani, URest,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, FMX.Controls.Presentation, FMX.Objects, UCrypt;
 
@@ -24,6 +24,8 @@ type
     crypt: TButton;
     Button3: TButton;
     Edit2: TEdit;
+    Button4: TButton;
+    Button5: TButton;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -32,6 +34,8 @@ type
     procedure Edit1Validate(Sender: TObject; var Text: string);
     procedure cryptClick(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
   private
     FTalker: TTalker;
     procedure GenerateMessage;
@@ -77,6 +81,17 @@ begin
   showmessage(Tcrypt.Decrypt(Edit2.Text, $FA));
 end;
 
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  form2.AuthenticateUser('testuser', 'testpassword');
+  // showmessage(form2.MakeRestRequest);
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+  showmessage(form2.MakeRestRequest);
+end;
+
 procedure TForm1.cryptClick(Sender: TObject);
 begin
 
@@ -116,7 +131,7 @@ begin
     FileValue := JSonValue.GetValue<string>('edit');
     Edit1.Text := FileValue;
   end;
- // criptare testo inserito, algoritmo di decriptaggio, salva su file in base64
+  // criptare testo inserito, algoritmo di decriptaggio, salva su file in base64
 
 
 
