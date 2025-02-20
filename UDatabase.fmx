@@ -1,0 +1,50 @@
+object Form3: TForm3
+  Left = 0
+  Top = 0
+  Caption = 'Form3'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Mac\Home\Documents\Embarcadero\Studio\Projects\testP' +
+        'roject\db.db'
+      'DriverID=SQLite')
+    Connected = True
+    Left = 200
+    Top = 128
+  end
+  object FDTable1: TFDTable
+    IndexFieldNames = 'id'
+    Connection = FDConnection1
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = 'products'
+    Left = 201
+    Top = 184
+    object FDTable1id: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = False
+    end
+    object FDTable1description: TWideMemoField
+      FieldName = 'description'
+      Origin = 'description'
+      BlobType = ftWideMemo
+    end
+    object FDTable1price: TLargeintField
+      FieldName = 'price'
+      Origin = 'price'
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = FDTable1
+    Left = 200
+    Top = 240
+  end
+end

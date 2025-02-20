@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 535
-  ClientWidth = 689
+  ClientHeight = 608
+  ClientWidth = 793
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -17,6 +17,7 @@ object Form1: TForm1
     Size.Height = 535.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
+    Visible = False
     object AniIndicator: TAniIndicator
       Align = Center
       Size.Width = 57.000000000000000000
@@ -36,7 +37,7 @@ object Form1: TForm1
     TabOrder = 1
     Position.X = 136.000000000000000000
     Position.Y = 8.000000000000000000
-    Size.Width = 457.000000000000000000
+    Size.Width = 561.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TextPrompt = 'Scrivi qui'
@@ -45,9 +46,9 @@ object Form1: TForm1
   object Button1: TButton
     Anchors = [akTop, akRight]
     Default = True
-    Position.X = 601.000000000000000000
+    Position.X = 705.000000000000000000
     Position.Y = 8.000000000000000000
-    TabOrder = 8
+    TabOrder = 14
     Text = 'Talk'
     TextSettings.Trimming = None
     OnClick = Button1Click
@@ -55,7 +56,7 @@ object Form1: TForm1
   object Button2: TButton
     Anchors = [akTop, akRight]
     Default = True
-    Position.X = 601.000000000000000000
+    Position.X = 705.000000000000000000
     Position.Y = 38.000000000000000000
     TabOrder = 2
     Text = 'Thread Talk'
@@ -63,7 +64,7 @@ object Form1: TForm1
     OnClick = Button2Click
   end
   object crypt: TButton
-    Position.X = 601.000000000000000000
+    Position.X = 705.000000000000000000
     Position.Y = 68.000000000000000000
     TabOrder = 5
     Text = 'crypt'
@@ -72,7 +73,7 @@ object Form1: TForm1
   end
   object Button3: TButton
     Anchors = [akTop, akRight]
-    Position.X = 601.000000000000000000
+    Position.X = 705.000000000000000000
     Position.Y = 98.000000000000000000
     TabOrder = 6
     Text = 'decrypt'
@@ -85,13 +86,13 @@ object Form1: TForm1
     TabOrder = 7
     Position.X = 136.000000000000000000
     Position.Y = 38.000000000000000000
-    Size.Width = 457.000000000000000000
+    Size.Width = 561.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TextPrompt = 'testo cryptato..'
   end
   object Button4: TButton
-    Position.X = 601.000000000000000000
+    Position.X = 705.000000000000000000
     Position.Y = 128.000000000000000000
     TabOrder = 9
     Text = 'authentication'
@@ -99,11 +100,128 @@ object Form1: TForm1
     OnClick = Button4Click
   end
   object Button5: TButton
-    Position.X = 601.000000000000000000
+    Position.X = 705.000000000000000000
     Position.Y = 158.000000000000000000
     TabOrder = 10
     Text = 'request'
     TextSettings.Trimming = None
     OnClick = Button5Click
+  end
+  object TMSFNCGrid1: TTMSFNCGrid
+    AdaptToStyle = True
+    Position.X = 8.000000000000000000
+    Position.Y = 109.000000000000000000
+    Size.Width = 600.000000000000000000
+    Size.Height = 476.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 13
+    DefaultRowHeight = 100.000000000000000000
+    FixedColumns = 0
+    ColumnCount = 0
+    RowCount = 1
+    Options.Bands.Enabled = True
+    Options.Editing.CalcFormat = '%g'
+    Options.Grouping.CalcFormat = '%g'
+    Options.Grouping.GroupCountFormat = '(%d)'
+    Options.IO.XMLEncoding = 'ISO-8859-1'
+    Options.Mouse.ClickMargin = 0
+    Options.Mouse.ColumnSizeMargin = 6
+    Options.Mouse.RowSizeMargin = 6
+    Options.Styling.AdaptToStyle = True
+    Adapter = TMSFNCGridDatabaseAdapter1
+    Columns = <
+      item
+        BorderWidth = 1
+        FixedFont.Color = xFF454545
+        FixedFont.Name = 'Segoe UI'
+        FixedFont.StyleExt = {00070000000000000004000000}
+        Font.Color = xFF7A7A7A
+        Font.Name = 'Segoe UI'
+        ID = ''
+        Width = 70.000000000000000000
+      end
+      item
+        BorderWidth = 1
+        FixedFont.Color = xFF454545
+        FixedFont.Name = 'Segoe UI'
+        FixedFont.StyleExt = {00070000000000000004000000}
+        Font.Color = xFF7A7A7A
+        Font.Name = 'Segoe UI'
+        ID = ''
+        Width = 250.000000000000000000
+      end
+      item
+        BorderWidth = 1
+        FixedFont.Color = xFF454545
+        FixedFont.Name = 'Segoe UI'
+        FixedFont.StyleExt = {00070000000000000004000000}
+        Font.Color = xFF7A7A7A
+        Font.Name = 'Segoe UI'
+        ID = ''
+        Width = 100.000000000000000000
+      end>
+    DefaultFont.Family = 'Arial'
+    DefaultFont.Size = 15.000000000000000000
+    DefaultFont.Name = 'Arial'
+    DefaultFont.StyleExt = {00070000000000000004000000}
+    Stroke.Color = xFFF0F0F0
+    TopRow = 1
+    Appearance.FixedLayout.Fill.Kind = gfkGradient
+    Appearance.FixedLayout.Fill.ColorTo = claWhite
+    Appearance.FixedLayout.Stroke.Color = xFFF0F0F0
+    Appearance.FixedLayout.Font.Size = 14.000000000000000000
+    Appearance.FixedLayout.Font.Name = 'Segoe UI'
+    Appearance.FixedLayout.Font.StyleExt = {00070000000000000004000000}
+    Appearance.NormalLayout.Fill.Color = xFFF6F8FC
+    Appearance.NormalLayout.Stroke.Color = xFFF0F0F0
+    Appearance.NormalLayout.Font.Name = 'Segoe UI'
+    Appearance.GroupLayout.Fill.Kind = gfkGradient
+    Appearance.GroupLayout.Fill.Color = x7F0078D7
+    Appearance.GroupLayout.Fill.ColorTo = x7F0078D7
+    Appearance.GroupLayout.Stroke.Color = xFFF0F0F0
+    Appearance.GroupLayout.Font.Name = 'Segoe UI'
+    Appearance.SummaryLayout.Fill.Kind = gfkGradient
+    Appearance.SummaryLayout.Fill.Color = x7F0078D7
+    Appearance.SummaryLayout.Fill.ColorTo = x7F0078D7
+    Appearance.SummaryLayout.Stroke.Color = xFFF0F0F0
+    Appearance.SummaryLayout.Font.Name = 'Segoe UI'
+    Appearance.SummaryLayout.TextAlign = gtaTrailing
+    Appearance.SelectedLayout.Fill.Kind = gfkGradient
+    Appearance.SelectedLayout.Fill.Color = x7F0078D7
+    Appearance.SelectedLayout.Fill.ColorTo = x7F0078D7
+    Appearance.SelectedLayout.Stroke.Color = xFFF0F0F0
+    Appearance.SelectedLayout.Font.Name = 'Segoe UI'
+    Appearance.FocusedLayout.Fill.Kind = gfkGradient
+    Appearance.FocusedLayout.Fill.Color = x7F0078D7
+    Appearance.FocusedLayout.Fill.ColorTo = x7F0078D7
+    Appearance.FocusedLayout.Stroke.Color = xFFF0F0F0
+    Appearance.FocusedLayout.Font.Name = 'Segoe UI'
+    Appearance.FixedSelectedLayout.Fill.Kind = gfkGradient
+    Appearance.FixedSelectedLayout.Fill.Color = x7F0078D7
+    Appearance.FixedSelectedLayout.Fill.ColorTo = x7F0078D7
+    Appearance.FixedSelectedLayout.Stroke.Color = xFFF0F0F0
+    Appearance.FixedSelectedLayout.Font.Name = 'Segoe UI'
+    Appearance.BandLayout.Fill.Color = xFFFFFFFE
+    Appearance.BandLayout.Stroke.Color = xFFF0F0F0
+    Appearance.BandLayout.Font.Color = xFF7A7A7A
+    Appearance.BandLayout.Font.Name = 'Segoe UI'
+    Appearance.ProgressLayout.Color = x7F0078D7
+    Appearance.ProgressLayout.Format = '%.0f%%'
+    LeftCol = 0
+    ScrollMode = scmItemScrolling
+    GlobalFont.Scale = 1.000000000000000000
+    GlobalFont.Style = []
+    DesignTimeSampleData = True
+    object TMSFNCGridDatabaseAdapter1: TTMSFNCGridDatabaseAdapter
+      Size.Width = 52.000000000000000000
+      Size.Height = 52.000000000000000000
+      Size.PlatformDefault = False
+      Position.X = 424.000000000000000000
+      Position.Y = 170.000000000000000000
+      Active = True
+      Grid = TMSFNCGrid1
+      DataSource = Form3.DataSource1
+      Columns = <>
+    end
   end
 end

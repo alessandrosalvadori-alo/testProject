@@ -3,11 +3,12 @@ program testTalker;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  UMain in 'UMain.pas' {Form1} ,
+  UMain in 'UMain.pas' {Form1},
   UTalker in 'UTalker.pas',
   UShouter in 'UShouter.pas',
   Ucrypt in 'Ucrypt.pas',
-  URest in 'URest.pas' {Form2};
+  URest in 'URest.pas' {Form2},
+  UDatabase in 'UDatabase.pas' {Form3};
 
 {$R *.res}
 

@@ -9,9 +9,14 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
   System.Variants, System.JSON, // system for JSON
   System.IOUtils, System.NetEncoding,
-  UTalker, FMX.Ani, URest,
+  UTalker, FMX.Ani, URest, UDatabase,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Objects, UCrypt;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Objects, UCrypt,
+  FMX.TMSFNCTypes, FMX.TMSFNCUtils, FMX.TMSFNCGraphics, FMX.TMSFNCGraphicsTypes,
+  FMX.TMSFNCGridCell, FMX.TMSFNCGridOptions, FMX.TMSFNCCustomComponent,
+  FMX.TMSFNCCustomGrid, FMX.TMSFNCGridDatabaseAdapter, FMX.TMSFNCCustomControl,
+  FMX.TMSFNCCustomScrollControl, FMX.TMSFNCGridData, FMX.TMSFNCGrid,
+  System.Rtti, FMX.Grid.Style, FMX.Grid, FMX.ScrollBox;
 
 type
   TForm1 = class(TForm)
@@ -26,6 +31,8 @@ type
     Edit2: TEdit;
     Button4: TButton;
     Button5: TButton;
+    TMSFNCGrid1: TTMSFNCGrid;
+    TMSFNCGridDatabaseAdapter1: TTMSFNCGridDatabaseAdapter;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -40,6 +47,7 @@ type
     FTalker: TTalker;
     procedure GenerateMessage;
     procedure OnTextReady(Sender: TObject);
+    procedure PopulateData;
   public
     { Public declarations }
   end;
@@ -116,6 +124,8 @@ var
   JSonValue: TJSonValue;
   FileValue: string;
 begin
+  Form3 := TForm3.Create(Self);
+
   FTalker := TTalker.Create;
   RectangleWait.OPACITY := NO_OPACITY;
   RectangleWait.Visible := false;
@@ -134,9 +144,31 @@ begin
   // criptare testo inserito, algoritmo di decriptaggio, salva su file in base64
 
 
-
+  PopulateData;
   // RectangleWait.Align:=  TAlignLayout.Client;
 
+end;
+
+procedure TForm1.PopulateData;
+var
+  LRowCount: integer;
+  LColumnCount: integer;
+begin
+{
+  with Form3.FDTable1 do
+  begin
+    LRowCount := RecordCount;
+    LColumnCount := FieldCount;
+    TMSFNCGrid1.Cells[0, 0] := Fields[0].FieldName;
+    TMSFNCGrid1.Cells[0, 1] := Fields[1].FieldName;
+    TMSFNCGrid1.Cells[0, 2] := Fields[2].FieldName;
+
+
+
+  end;
+}
+TMSFNCGrid1.ColumnWidths[50];
+TMSFNCGrid1.RowHeights[50];
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
